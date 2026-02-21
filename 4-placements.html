@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudentOS | Placements</title>
+  <link rel="stylesheet" href="5-style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <h2 class="logo">StudentOS</h2>
+    <ul>
+      <li><a href="1-index.html">Dashboard</a></li>
+      <li><a href="3-academics.html">Academics</a></li>
+      <li><a href="2-planner.html">Planner</a></li>
+      <li><a href="4-placements.html">Placements</a></li>
+      <li><a href="10-calendar.html">Calendar</a></li>
+    </ul>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="container">
+    <h1>Placements & Internships</h1>
+    <p>Track your applications and their status.</p>
+
+    <!-- Add Application -->
+    <section class="card">
+      <h3>Add Application</h3>
+
+      <form id="placementForm">
+        <input 
+          type="text" 
+          id="company" 
+          placeholder="Company Name" 
+          required
+        >
+
+        <input 
+          type="text" 
+          id="role" 
+          placeholder="Role" 
+          required
+        >
+
+        <select id="type">
+          <option value="Internship">Internship</option>
+          <option value="Placement">Placement</option>
+        </select>
+
+        <select id="status">
+          <option value="Applied">Applied</option>
+          <option value="Interview">Interview</option>
+          <option value="Offer">Offer</option>
+          <option value="Rejected">Rejected</option>
+        </select>
+
+        <!-- Upload Resume -->
+        <input 
+          type="file" 
+          id="resumeFile" 
+          accept="application/pdf" 
+          required
+        >
+
+        <button type="submit">Add</button>
+      </form>
+    </section>
+
+    <!-- Applications List -->
+    <section class="card">
+      <h3>Your Applications</h3>
+      <div id="placementList"></div>
+    </section>
+  </main>
+
+  <script src="6-storage.js"></script>
+  <script src="9-placements.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudentOS | Daily Planner</title>
+  <link rel="stylesheet" href="5-style.css">
+</head>
+<body>
+
+  <!-- NAVBAR (same on all pages) -->
+  <nav class="navbar">
+    <h2 class="logo">StudentOS</h2>
+    <ul>
+      <li><a href="1-index.html">Dashboard</a></li>
+      <li><a href="3-academics.html">Academics</a></li>
+      <li><a href="2-planner.html">Planner</a></li>
+      <li><a href="4-placements.html">Placements</a></li>
+      <li><a href="10-calendar.html">Calendar</a></li>
+    </ul>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+    <h1>Daily Planner</h1>
+    <p>Plan your tasks and stay consistent.</p>
+
+    <!-- Add Task Section -->
+    <section class="card">
+      <h3>Add Task</h3>
+
+      <form id="taskForm">
+        <input 
+          type="text" 
+          id="taskTitle" 
+          placeholder="Task title" 
+          required 
+        >
+
+        <select id="priority">
+          <option value="High">High Priority</option>
+          <option value="Medium">Medium Priority</option>
+          <option value="Low">Low Priority</option>
+        </select>
+
+        <button type="submit">Add Task</button>
+      </form>
+    </section>
+
+    <!-- Task List Section -->
+    <section class="card">
+      <h3>Today’s Tasks</h3>
+      <div id="taskList"></div>
+    </section>
+  </main>
+
+  <!-- SCRIPTS -->
+  <script src="6-storage.js"></script>
+  <script src="7-planner.js"></script>
+
+</body>
+</html>
+

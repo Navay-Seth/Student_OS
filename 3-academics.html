@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudentOS | Academics</title>
+  <link rel="stylesheet" href="5-style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <h2 class="logo">StudentOS</h2>
+    <ul>
+      <li><a href="1-index.html">Dashboard</a></li>
+      <li><a href="3-academics.html">Academics</a></li>
+      <li><a href="2-planner.html">Planner</a></li>
+      <li><a href="4-placements.html">Placements</a></li>
+      <li><a href="10-calendar.html">Calendar</a></li>
+    </ul>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="container">
+    <h1>Academics</h1>
+    <section class="card">
+  <h3>Your CGPA</h3>
+
+  <form id="cgpaForm">
+    <input 
+      type="number" 
+      id="cgpa" 
+      placeholder="Enter CGPA (e.g. 9.2)" 
+      step="0.01" 
+      min="0" 
+      max="10" 
+      required
+    >
+    <button type="submit">Save CGPA</button>
+  </form>
+
+  <p id="cgpaInfo"></p>
+</section>
+
+    <p>Track your subjects, attendance, and syllabus progress.</p>
+
+    <!-- Add Subject -->
+    <section class="card">
+      <h3>Add Subject</h3>
+
+      <form id="subjectForm">
+        <input type="text" id="subjectName" placeholder="Subject Name" required>
+        <input type="number" id="attendance" placeholder="Attendance %" required>
+        <input type="number" id="progress" placeholder="Syllabus Progress %" required>
+        <button type="submit">Add Subject</button>
+      </form>
+    </section>
+
+    <!-- Subject List -->
+    <section class="card">
+      <h3>Your Subjects</h3>
+      <div id="subjectList"></div>
+    </section>
+  </main>
+
+  <script src="6-storage.js"></script>
+  <script src="8-academics.js"></script>
+</body>
+</html>
+

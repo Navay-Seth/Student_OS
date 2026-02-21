@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudentOS | Calendar</title>
+  <link rel="stylesheet" href="5-style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <h2 class="logo">StudentOS</h2>
+    <ul>
+      <li><a href="1-index.html">Dashboard</a></li>
+      <li><a href="3-academics.html">Academics</a></li>
+      <li><a href="2-planner.html">Planner</a></li>
+      <li><a href="4-placements.html">Placements</a></li>
+      <li><a href="10-calendar.html">Calendar</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <section class="calendar-stats card" aria-label="Study streak stats">
+      <div>
+        <h1>Calendar</h1>
+        <p>Track events and your study consistency.</p>
+      </div>
+      <div class="streak-row" role="status" aria-live="polite">
+        <div class="streak-pill">
+          <span class="streak-label">Current Streak</span>
+          <strong id="currentStreak">0 days</strong>
+        </div>
+        <div class="streak-pill">
+          <span class="streak-label">Longest Streak</span>
+          <strong id="longestStreak">0 days</strong>
+        </div>
+        <button id="markStudiedBtn" type="button">Mark Studied Today</button>
+      </div>
+    </section>
+
+    <section class="card calendar-card" aria-label="Monthly calendar">
+      <header class="calendar-header">
+        <button id="prevMonthBtn" type="button" aria-label="Previous month">Prev</button>
+        <h2 id="monthLabel">Month Year</h2>
+        <button id="nextMonthBtn" type="button" aria-label="Next month">Next</button>
+      </header>
+
+      <div class="calendar-weekdays" aria-hidden="true">
+        <span>Sun</span>
+        <span>Mon</span>
+        <span>Tue</span>
+        <span>Wed</span>
+        <span>Thu</span>
+        <span>Fri</span>
+        <span>Sat</span>
+      </div>
+
+      <div id="calendarGrid" class="calendar-grid" role="grid" aria-label="Calendar dates"></div>
+    </section>
+
+    <section class="card events-card" aria-label="Selected date events">
+      <h3 id="selectedDateLabel">Events for --</h3>
+
+      <form id="eventForm">
+        <input type="text" id="eventInput" placeholder="Add an event for selected date" required>
+        <button type="submit">Add Event</button>
+      </form>
+
+      <ul id="eventList" class="event-list"></ul>
+    </section>
+  </main>
+
+  <script src="10-calendar.js"></script>
+</body>
+</html>

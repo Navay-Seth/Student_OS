@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudentOS | Dashboard</title>
+  <link rel="stylesheet" href="5-style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+<nav class="navbar">
+  <h2 class="logo">StudentOS</h2>
+  <ul>
+    <li><a href="1-index.html">Dashboard</a></li>
+    <li><a href="3-academics.html">Academics</a></li>
+    <li><a href="2-planner.html">Planner</a></li>
+    <li><a href="4-placements.html">Placements</a></li>
+    <li><a href="10-calendar.html">Calendar</a></li>
+  </ul>
+</nav>
+
+<main class="container">
+
+  <div class="dashboard-header">
+    <h1>Welcome back 👋</h1>
+    <p>Your personal system to manage academics, productivity, and placements.</p>
+  </div>
+
+  <div class="cards">
+
+    <a href="3-academics.html" class="card-link">
+      <div class="card">
+        <i data-lucide="book-open" class="card-icon"></i>
+        Academics Tracker
+      </div>
+    </a>
+
+    <a href="2-planner.html" class="card-link">
+      <div class="card">
+        <i data-lucide="calendar-check" class="card-icon"></i>
+        Daily Planner
+      </div>
+    </a>
+
+    <a href="4-placements.html" class="card-link">
+      <div class="card">
+        <i data-lucide="briefcase" class="card-icon"></i>
+        Placement Manager
+      </div>
+    </a>
+
+    <a href="10-calendar.html" class="card-link">
+      <div class="card">
+        <i data-lucide="calendar" class="card-icon"></i>
+        Calendar
+      </div>
+    </a>
+
+  </div>
+
+</main>
+
+<script src="1-index.js"></script>
+<script>
+  lucide.createIcons();
+</script>
+</body>
+</html>
+

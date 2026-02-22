@@ -5,42 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>StudentOS | Placements</title>
   <link rel="stylesheet" href="5-style.css">
+  <link rel="stylesheet" href="dark-theme.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <h2 class="logo">StudentOS</h2>
-    <ul>
-      <li><a href="1-index.html">Dashboard</a></li>
-      <li><a href="3-academics.html">Academics</a></li>
-      <li><a href="2-planner.html">Planner</a></li>
-      <li><a href="4-placements.html">Placements</a></li>
-      <li><a href="10-calendar.html">Calendar</a></li>
-    </ul>
-  </nav>
+  <aside class="sidebar" aria-label="Primary">
+    <div class="sidebar-brand">
+      <div class="logo-mark" aria-hidden="true">SO</div>
+      <h2 class="logo">StudentOS</h2>
+    </div>
 
-  <!-- CONTENT -->
+    <ul class="sidebar-nav">
+      <li><a href="1-index.html"><i data-lucide="layout-dashboard"></i><span class="nav-label">Dashboard</span></a></li>
+      <li><a href="3-academics.html"><i data-lucide="graduation-cap"></i><span class="nav-label">Academics</span></a></li>
+      <li><a href="2-planner.html"><i data-lucide="clipboard-list"></i><span class="nav-label">Planner</span></a></li>
+      <li><a href="4-placements.html" class="active"><i data-lucide="briefcase"></i><span class="nav-label">Placements</span></a></li>
+      <li><a href="10-calendar.html"><i data-lucide="calendar-days"></i><span class="nav-label">Calendar</span></a></li>
+    </ul>
+    <div class="sidebar-theme">
+      <p class="sidebar-theme-label">Theme</p>
+      <label class="theme-switch">
+        <i data-lucide="moon"></i>
+        <input type="checkbox" class="theme-toggle-input" role="switch" aria-label="Toggle dark mode">
+        <span class="theme-switch-slider" aria-hidden="true"></span>
+        <i data-lucide="sun"></i>
+      </label>
+    </div>
+  </aside>
+
   <main class="container">
     <h1>Placements & Internships</h1>
     <p>Track your applications and their status.</p>
 
-    <!-- Add Application -->
     <section class="card">
       <h3>Add Application</h3>
 
       <form id="placementForm">
-        <input 
-          type="text" 
-          id="company" 
-          placeholder="Company Name" 
+        <input
+          type="text"
+          id="company"
+          placeholder="Company Name"
           required
         >
 
-        <input 
-          type="text" 
-          id="role" 
-          placeholder="Role" 
+        <input
+          type="text"
+          id="role"
+          placeholder="Role"
           required
         >
 
@@ -56,11 +68,10 @@
           <option value="Rejected">Rejected</option>
         </select>
 
-        <!-- Upload Resume -->
-        <input 
-          type="file" 
-          id="resumeFile" 
-          accept="application/pdf" 
+        <input
+          type="file"
+          id="resumeFile"
+          accept="application/pdf"
           required
         >
 
@@ -68,16 +79,18 @@
       </form>
     </section>
 
-    <!-- Applications List -->
     <section class="card">
       <h3>Your Applications</h3>
       <div id="placementList"></div>
     </section>
   </main>
 
+  <script src="12-theme.js"></script>
   <script src="6-storage.js"></script>
   <script src="9-placements.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
 
 </body>
 </html>
-

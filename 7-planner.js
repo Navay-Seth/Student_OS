@@ -13,12 +13,16 @@ function renderTasks() {
     div.className = "task-item" + (task.done ? " done" : "");
 
     div.innerHTML = `
-      <span>
-        <strong>${task.title}</strong> (${task.priority})
-      </span>
-      <button onclick="toggleTask(${index})">
-        ${task.done ? "Undo" : "Done"}
-      </button>
+      <div class="task-left">
+        <span class="task-title">${task.title}</span>
+        <span class="task-priority priority-${task.priority.toLowerCase()}">${task.priority}</span>
+      </div>
+      <div class="task-actions">
+        <button onclick="toggleTask(${index})">
+          ${task.done ? "Undo" : "Done"}
+        </button>
+        <button class="task-delete" onclick="deleteTask(${index})">Delete</button>
+      </div>
     `;
 
     taskList.appendChild(div);
@@ -27,6 +31,12 @@ function renderTasks() {
 
 function toggleTask(index) {
   tasks[index].done = !tasks[index].done;
+  saveData("tasks", tasks);
+  renderTasks();
+}
+
+function deleteTask(index) {
+  tasks.splice(index, 1);
   saveData("tasks", tasks);
   renderTasks();
 }

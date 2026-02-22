@@ -5,46 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>StudentOS | Academics</title>
   <link rel="stylesheet" href="5-style.css">
+  <link rel="stylesheet" href="dark-theme.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <h2 class="logo">StudentOS</h2>
-    <ul>
-      <li><a href="1-index.html">Dashboard</a></li>
-      <li><a href="3-academics.html">Academics</a></li>
-      <li><a href="2-planner.html">Planner</a></li>
-      <li><a href="4-placements.html">Placements</a></li>
-      <li><a href="10-calendar.html">Calendar</a></li>
-    </ul>
-  </nav>
+  <aside class="sidebar" aria-label="Primary">
+    <div class="sidebar-brand">
+      <div class="logo-mark" aria-hidden="true">SO</div>
+      <h2 class="logo">StudentOS</h2>
+    </div>
 
-  <!-- CONTENT -->
+    <ul class="sidebar-nav">
+      <li><a href="1-index.html"><i data-lucide="layout-dashboard"></i><span class="nav-label">Dashboard</span></a></li>
+      <li><a href="3-academics.html" class="active"><i data-lucide="graduation-cap"></i><span class="nav-label">Academics</span></a></li>
+      <li><a href="2-planner.html"><i data-lucide="clipboard-list"></i><span class="nav-label">Planner</span></a></li>
+      <li><a href="4-placements.html"><i data-lucide="briefcase"></i><span class="nav-label">Placements</span></a></li>
+      <li><a href="10-calendar.html"><i data-lucide="calendar-days"></i><span class="nav-label">Calendar</span></a></li>
+    </ul>
+    <div class="sidebar-theme">
+      <p class="sidebar-theme-label">Theme</p>
+      <label class="theme-switch">
+        <i data-lucide="moon"></i>
+        <input type="checkbox" class="theme-toggle-input" role="switch" aria-label="Toggle dark mode">
+        <span class="theme-switch-slider" aria-hidden="true"></span>
+        <i data-lucide="sun"></i>
+      </label>
+    </div>
+  </aside>
+
   <main class="container">
     <h1>Academics</h1>
     <section class="card">
-  <h3>Your CGPA</h3>
+      <h3>Your CGPA</h3>
 
-  <form id="cgpaForm">
-    <input 
-      type="number" 
-      id="cgpa" 
-      placeholder="Enter CGPA (e.g. 9.2)" 
-      step="0.01" 
-      min="0" 
-      max="10" 
-      required
-    >
-    <button type="submit">Save CGPA</button>
-  </form>
+      <form id="cgpaForm">
+        <input
+          type="number"
+          id="cgpa"
+          placeholder="Enter CGPA (e.g. 9.2)"
+          step="0.01"
+          min="0"
+          max="10"
+          required
+        >
+        <button type="submit">Save CGPA</button>
+      </form>
 
-  <p id="cgpaInfo"></p>
-</section>
+      <p id="cgpaInfo"></p>
+    </section>
 
     <p>Track your subjects, attendance, and syllabus progress.</p>
 
-    <!-- Add Subject -->
     <section class="card">
       <h3>Add Subject</h3>
 
@@ -56,15 +68,17 @@
       </form>
     </section>
 
-    <!-- Subject List -->
     <section class="card">
       <h3>Your Subjects</h3>
       <div id="subjectList"></div>
     </section>
   </main>
 
+  <script src="12-theme.js"></script>
   <script src="6-storage.js"></script>
   <script src="8-academics.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>
-

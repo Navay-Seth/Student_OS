@@ -5,36 +5,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>StudentOS | Daily Planner</title>
   <link rel="stylesheet" href="5-style.css">
+  <link rel="stylesheet" href="dark-theme.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
-  <!-- NAVBAR (same on all pages) -->
-  <nav class="navbar">
-    <h2 class="logo">StudentOS</h2>
-    <ul>
-      <li><a href="1-index.html">Dashboard</a></li>
-      <li><a href="3-academics.html">Academics</a></li>
-      <li><a href="2-planner.html">Planner</a></li>
-      <li><a href="4-placements.html">Placements</a></li>
-      <li><a href="10-calendar.html">Calendar</a></li>
-    </ul>
-  </nav>
+  <aside class="sidebar" aria-label="Primary">
+    <div class="sidebar-brand">
+      <div class="logo-mark" aria-hidden="true">SO</div>
+      <h2 class="logo">StudentOS</h2>
+    </div>
 
-  <!-- MAIN CONTENT -->
+    <ul class="sidebar-nav">
+      <li><a href="1-index.html"><i data-lucide="layout-dashboard"></i><span class="nav-label">Dashboard</span></a></li>
+      <li><a href="3-academics.html"><i data-lucide="graduation-cap"></i><span class="nav-label">Academics</span></a></li>
+      <li><a href="2-planner.html" class="active"><i data-lucide="clipboard-list"></i><span class="nav-label">Planner</span></a></li>
+      <li><a href="4-placements.html"><i data-lucide="briefcase"></i><span class="nav-label">Placements</span></a></li>
+      <li><a href="10-calendar.html"><i data-lucide="calendar-days"></i><span class="nav-label">Calendar</span></a></li>
+    </ul>
+    <div class="sidebar-theme">
+      <p class="sidebar-theme-label">Theme</p>
+      <label class="theme-switch">
+        <i data-lucide="moon"></i>
+        <input type="checkbox" class="theme-toggle-input" role="switch" aria-label="Toggle dark mode">
+        <span class="theme-switch-slider" aria-hidden="true"></span>
+        <i data-lucide="sun"></i>
+      </label>
+    </div>
+  </aside>
+
   <main class="container">
     <h1>Daily Planner</h1>
     <p>Plan your tasks and stay consistent.</p>
 
-    <!-- Add Task Section -->
     <section class="card">
       <h3>Add Task</h3>
 
       <form id="taskForm">
-        <input 
-          type="text" 
-          id="taskTitle" 
-          placeholder="Task title" 
-          required 
+        <input
+          type="text"
+          id="taskTitle"
+          placeholder="Task title"
+          required
         >
 
         <select id="priority">
@@ -47,17 +59,18 @@
       </form>
     </section>
 
-    <!-- Task List Section -->
     <section class="card">
-      <h3>Today’s Tasks</h3>
+      <h3>Today's Tasks</h3>
       <div id="taskList"></div>
     </section>
   </main>
 
-  <!-- SCRIPTS -->
+  <script src="12-theme.js"></script>
   <script src="6-storage.js"></script>
   <script src="7-planner.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
 
 </body>
 </html>
-

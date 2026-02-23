@@ -23,6 +23,8 @@ body.dark .stat-value {
 
 body.dark .sidebar-theme-label,
 body.dark .hero-subtitle,
+body.dark .academics-subtitle,
+body.dark .section-subtitle,
 body.dark .stat-label,
 body.dark .stat-foot,
 body.dark .deadline-date,
@@ -138,4 +140,17 @@ body.dark .close-btn {
 body.dark .chart-panel canvas {
   background: #1e293b;
   border-radius: 12px;
+}
+
+body.dark .subject-item {
+  background: #0f172a;
+  border-color: #334155;
+}
+
+body.dark .subject-meta,
+body.dark #cgpaInfo,
+body.dark #targetCgpaInfo,
+body.dark #quickCgpaInfo,
+body.dark .quick-cgpa-field label {
+  color: #94a3b8;
 }

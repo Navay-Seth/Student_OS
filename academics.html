@@ -34,12 +34,17 @@
     </div>
   </aside>
 
-  <main class="container">
-    <h1>Academics</h1>
-    <section class="card">
-      <h3>Your CGPA</h3>
+  <main class="container academics-page">
+    <header class="academics-header">
+      <h1>Academics</h1>
+      <p class="academics-subtitle">Track your subjects, attendance, and syllabus progress.</p>
+    </header>
 
-      <form id="cgpaForm">
+    <section class="card academics-card academics-cgpa-card">
+      <h3>Current CGPA</h3>
+      <p class="section-subtitle">Keep your current and target CGPA up to date.</p>
+
+      <form id="cgpaForm" class="academics-inline-form">
         <input
           type="number"
           id="cgpa"
@@ -53,14 +58,55 @@
       </form>
 
       <p id="cgpaInfo"></p>
+
+      <div class="target-cgpa-inline">
+        <form id="targetCgpaForm" class="academics-inline-form target-cgpa-form">
+          <input
+            type="number"
+            id="targetCgpa"
+            placeholder="Set Target CGPA"
+            step="0.01"
+            min="0"
+            max="10"
+            required
+          >
+          <button type="submit">Save</button>
+        </form>
+        <p id="targetCgpaInfo"></p>
+      </div>
     </section>
 
-    <p>Track your subjects, attendance, and syllabus progress.</p>
+    <section class="card academics-card">
+      <h3>Quick CGPA Calculator</h3>
+      <p class="section-subtitle">Estimate your updated CGPA for this semester.</p>
 
-    <section class="card">
+      <form id="quickCgpaForm" class="quick-cgpa-form">
+        <div class="quick-cgpa-field">
+          <label for="oldCredits">Credits till last semester</label>
+          <input type="number" id="oldCredits" min="0" step="1" required>
+        </div>
+        <div class="quick-cgpa-field">
+          <label for="oldCgpa">CGPA till last semester (0-10)</label>
+          <input type="number" id="oldCgpa" min="0" max="10" step="0.01" required>
+        </div>
+        <div class="quick-cgpa-field">
+          <label for="currentCredits">Credits in this semester</label>
+          <input type="number" id="currentCredits" min="0" step="1" required>
+        </div>
+        <div class="quick-cgpa-field">
+          <label for="currentGpa">Expected GPA this semester (0-10)</label>
+          <input type="number" id="currentGpa" min="0" max="10" step="0.01" required>
+        </div>
+        <button type="submit">Calculate</button>
+      </form>
+      <p id="quickCgpaInfo"></p>
+    </section>
+
+    <section class="card academics-card">
       <h3>Add Subject</h3>
+      <p class="section-subtitle">Record attendance and syllabus progress per subject.</p>
 
-      <form id="subjectForm">
+      <form id="subjectForm" class="subject-form-grid">
         <input type="text" id="subjectName" placeholder="Subject Name" required>
         <input type="number" id="attendance" placeholder="Attendance %" required>
         <input type="number" id="progress" placeholder="Syllabus Progress %" required>
@@ -68,9 +114,10 @@
       </form>
     </section>
 
-    <section class="card">
+    <section class="card academics-card">
       <h3>Your Subjects</h3>
-      <div id="subjectList"></div>
+      <p class="section-subtitle">Review and manage all added subjects.</p>
+      <div id="subjectList" class="subject-list"></div>
     </section>
   </main>
 

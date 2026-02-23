@@ -293,6 +293,212 @@ form button:hover {
   opacity: 0.9;
 }
 
+.target-cgpa-inline {
+  margin-top: 14px;
+}
+
+.target-cgpa-form {
+  margin-top: 0;
+}
+
+#targetCgpaInfo {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+/* ===================================================== */
+/* ===================== ACADEMICS ===================== */
+/* ===================================================== */
+
+.academics-page {
+  max-width: 980px;
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  overflow: visible;
+}
+
+.academics-page .card {
+  height: auto;
+  max-height: none;
+  overflow: visible;
+}
+
+.academics-container,
+.main-content {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  overflow: visible;
+}
+
+.academics-header h1 {
+  font-size: clamp(28px, 3vw, 34px);
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.academics-subtitle {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.academics-card {
+  cursor: default;
+  text-align: left;
+  padding: 24px;
+  border-radius: 18px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+.academics-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px rgba(15, 23, 42, 0.11);
+}
+
+.academics-card h3 {
+  font-size: 20px;
+  line-height: 1.25;
+  margin-bottom: 4px;
+}
+
+.section-subtitle {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.academics-inline-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.academics-inline-form input {
+  width: 210px;
+  min-width: 160px;
+  flex: 0 0 auto;
+}
+
+.academics-inline-form button {
+  padding: 12px 18px;
+}
+
+#cgpaInfo,
+#targetCgpaInfo {
+  font-size: 13px;
+}
+
+#cgpaInfo {
+  margin-top: 10px;
+  color: #475569;
+}
+
+.subject-form-grid {
+  display: grid;
+  grid-template-columns: minmax(180px, 1.5fr) repeat(2, minmax(130px, 1fr)) auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.subject-form-grid input {
+  width: 100%;
+  min-width: 0;
+}
+
+.subject-form-grid button {
+  white-space: nowrap;
+}
+
+.subject-list {
+  margin-top: 12px;
+  display: grid;
+  gap: 12px;
+}
+
+.subject-item {
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #f8fafc;
+  padding: 14px;
+}
+
+.subject-item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.subject-name {
+  font-size: 15px;
+  color: #0f172a;
+}
+
+.subject-meta {
+  font-size: 13px;
+  color: #475569;
+  margin-bottom: 4px;
+}
+
+.warning {
+  color: #b91c1c;
+  font-weight: 600;
+  margin-left: 6px;
+}
+
+.subject-delete {
+  border: none;
+  border-radius: 10px;
+  padding: 7px 12px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #ef4444, #f87171);
+  cursor: pointer;
+}
+
+.subject-delete:hover {
+  opacity: 0.92;
+}
+
+.quick-cgpa-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  align-items: end;
+}
+
+.quick-cgpa-field {
+  display: grid;
+  gap: 6px;
+}
+
+.quick-cgpa-field label {
+  font-size: 13px;
+  color: #475569;
+  font-weight: 600;
+}
+
+.quick-cgpa-field input {
+  width: 100%;
+  min-width: 0;
+}
+
+#quickCgpaInfo {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #475569;
+}
+
 /* ===================================================== */
 /* ===================== PLANNER ======================= */
 /* ===================================================== */
@@ -646,6 +852,14 @@ form button:hover {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .subject-form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .quick-cgpa-form {
+    grid-template-columns: 1fr;
+  }
+
   .calendar-stats {
     flex-direction: column;
     align-items: flex-start;
@@ -701,6 +915,34 @@ form button:hover {
 @media (max-width: 760px) {
   .container {
     padding: 16px;
+  }
+
+  .academics-page {
+    gap: 14px;
+  }
+
+  .academics-card {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .academics-inline-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .academics-inline-form input,
+  .academics-inline-form button {
+    width: 100%;
+  }
+
+  .subject-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .subject-item-top {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .cards {

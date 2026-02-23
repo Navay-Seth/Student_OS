@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 .dashboard-main {
   width: 100%;
@@ -465,3 +465,20 @@
     grid-template-columns: 1fr;
   }
 }
+
+.wave {
+  display: inline-block;
+  transform-origin: 70% 70%;
+  animation: wave-hand 0.8s ease-in-out 2;
+}
+
+@keyframes wave-hand {
+  0%, 60%, 100% { transform: rotate(0deg); }
+  10% { transform: rotate(8deg); }
+  20% { transform: rotate(-4deg); }
+  30% { transform: rotate(8deg); }
+  40% { transform: rotate(-2deg); }
+  50% { transform: rotate(5deg); }
+}
+
+

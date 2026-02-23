@@ -4,6 +4,9 @@ const TIMER_MAX_MINUTES = 120;
 const TIMER_SESSIONS_KEY = "pomodoroSessions";
 const CGPA_HISTORY_KEY = "cgpaHistory";
 const STUDIED_DATES_KEY = "studiedDates";
+const TARGET_CGPA_KEY = "targetCgpa";
+const SEMESTER_GPA_KEY = "semesterGpas";
+const DEFAULT_TARGET_CGPA = 9.0;
 
 let selectedDurationMinutes = DEFAULT_TIMER_MINUTES;
 let timerSeconds = selectedDurationMinutes * 60;
@@ -145,24 +148,15 @@ function getWeeklyStudyMinutes(studiedDates, completedSessions) {
 }
 
 function getCgpaSeries(currentCgpa) {
-  const stored = getSafeArray(CGPA_HISTORY_KEY).filter((value) => Number.isFinite(Number(value)));
-  const history = stored.map(Number).slice(-6);
+  const semesterGpas = getSafeArray(SEMESTER_GPA_KEY)
+    .map((value) => Number(value))
+    .filter((value) => Number.isFinite(value) && value >= 0 && value <= 10)
+    .slice(0, 12);
 
-  if (history.length >= 2) {
+  if (semesterGpas.length > 0) {
     return {
-      labels: history.map((_, index) => `Sem ${index + 1}`),
-      values: history
-    };
-  }
-
-  if (Number.isFinite(currentCgpa)) {
-    const s1 = Math.max(0, currentCgpa - 0.8);
-    const s2 = Math.max(0, currentCgpa - 0.5);
-    const s3 = Math.max(0, currentCgpa - 0.3);
-    const s4 = Math.max(0, currentCgpa - 0.1);
-    return {
-      labels: ["Sem 1", "Sem 2", "Sem 3", "Sem 4", "Current"],
-      values: [s1, s2, s3, s4, currentCgpa]
+      labels: semesterGpas.map((_, index) => `Sem ${index + 1}`),
+      values: semesterGpas
     };
   }
 
@@ -188,6 +182,10 @@ function getDashboardData() {
   const streak = getStreak(studiedDates);
 
   const currentCgpa = getSafeNumber("cgpa");
+  const storedTargetCgpa = getSafeNumber(TARGET_CGPA_KEY);
+  const targetCgpa = Number.isFinite(storedTargetCgpa) && storedTargetCgpa >= 0 && storedTargetCgpa <= 10
+    ? storedTargetCgpa
+    : DEFAULT_TARGET_CGPA;
   const completedSessions = getSafeNumber(TIMER_SESSIONS_KEY);
   const pomodoroSessions = Number.isFinite(completedSessions) ? completedSessions : 0;
 
@@ -207,9 +205,11 @@ function getDashboardData() {
       meta: `${streak} day streak`
     },
     {
-      title: "CGPA Target 9.0",
-      progress: Number.isFinite(currentCgpa) ? clampPercent((currentCgpa / 9) * 100) : 0,
-      meta: Number.isFinite(currentCgpa) ? `Current ${currentCgpa.toFixed(2)}` : "Set CGPA in Academics"
+      title: `CGPA Target ${targetCgpa.toFixed(1)}`,
+      progress: Number.isFinite(currentCgpa) && targetCgpa > 0 ? clampPercent((currentCgpa / targetCgpa) * 100) : 0,
+      meta: Number.isFinite(currentCgpa)
+        ? `Current ${currentCgpa.toFixed(2)} / Target ${targetCgpa.toFixed(2)}`
+        : "Set CGPA in Academics"
     }
   ];
 

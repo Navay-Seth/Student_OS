@@ -22,6 +22,8 @@ body.dark .stat-value {
 }
 
 body.dark .sidebar-theme-label,
+body.dark .sidebar-footer,
+body.dark .sidebar-footer p,
 body.dark .hero-subtitle,
 body.dark .academics-subtitle,
 body.dark .section-subtitle,
@@ -49,6 +51,10 @@ body.dark .sidebar-nav a.active {
   color: #ffffff;
 }
 
+body.dark .linkedin-link svg {
+  fill: #60a5fa;
+}
+
 body.dark .theme-switch {
   background: #111827;
   border-color: #334155;
@@ -56,6 +62,12 @@ body.dark .theme-switch {
 
 body.dark .theme-switch i {
   color: #cbd5e1;
+}
+
+body.dark .menu-toggle {
+  background: #1e293b;
+  border-color: #334155;
+  color: #e2e8f0;
 }
 
 body.dark .card,

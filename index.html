@@ -26,18 +26,39 @@
     <li><a href="calendar.html"><i data-lucide="calendar-days"></i><span class="nav-label">Calendar</span></a></li>
   </ul>
 
-  <div class="sidebar-theme">
-    <p class="sidebar-theme-label">Theme</p>
-    <label class="theme-switch">
-      <i data-lucide="moon"></i>
-      <input type="checkbox" class="theme-toggle-input" role="switch" aria-label="Toggle dark mode">
-      <span class="theme-switch-slider" aria-hidden="true"></span>
-      <i data-lucide="sun"></i>
-    </label>
+  <div class="sidebar-bottom">
+    <div class="sidebar-theme">
+      <p class="sidebar-theme-label">Theme</p>
+      <label class="theme-switch">
+        <i data-lucide="moon"></i>
+        <input type="checkbox" class="theme-toggle-input" role="switch" aria-label="Toggle dark mode">
+        <span class="theme-switch-slider" aria-hidden="true"></span>
+        <i data-lucide="sun"></i>
+      </label>
+    </div>
+
+    <div class="sidebar-footer">
+      <p>&copy; 2026 Navay Seth</p>
+      <a href="https://www.linkedin.com/in/navay-seth-3a4406353/"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="linkedin-link"
+         aria-label="LinkedIn profile">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.22 8.09h4.56V24H.22V8.09zM8.09 8.09h4.37v2.18h.06c.61-1.15 2.1-2.37 4.32-2.37 4.62 0 5.47 3.04 5.47 6.99V24h-4.56v-7.9c0-1.88-.03-4.29-2.61-4.29-2.62 0-3.02 2.05-3.02 4.16V24H8.09V8.09z"/>
+        </svg>
+      </a>
+    </div>
   </div>
 </aside>
 
+<div id="overlay" class="overlay"></div>
+
 <main class="container dashboard-main">
+  <header class="mobile-header">
+    <button id="menuToggle" class="menu-toggle" aria-label="Open menu">☰</button>
+  </header>
+
   <section class="dashboard-hero reveal" aria-label="Welcome summary">
     <div class="hero-copy">
       <h1>Welcome back <span class="wave" aria-hidden="true">👋</span></h1>
@@ -116,10 +137,10 @@
 </main>
 
 <script src="js/theme.js"></script>
+<script src="js/mobile-sidebar.js"></script>
 <script src="js/main.js"></script>
 <script>
   lucide.createIcons();
 </script>
 </body>
 </html>
-

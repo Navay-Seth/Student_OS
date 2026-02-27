@@ -18,11 +18,18 @@
 
 body {
   display: flex;
-  min-height: 100vh;
+  min-height: 100dvh;
   overflow-x: hidden;
+  padding-bottom: env(safe-area-inset-bottom);
   background: linear-gradient(180deg, #f8fafc, #eef2f7);
   color: #0f172a;
   transition: background 0.3s ease, color 0.3s ease;
+}
+
+html,
+body {
+  min-height: 100dvh;
+  overflow-x: hidden;
 }
 
 /* ===== SIDEBAR ===== */
@@ -31,7 +38,7 @@ body {
   top: 0;
   left: 0;
   width: var(--sidebar-width);
-  height: 100vh;
+  min-height: 100dvh;
   background: #0f172a;
   padding: 24px 16px;
   border-right: 1px solid #1e293b;
@@ -210,7 +217,7 @@ body {
   flex: 1;
   min-width: 0;
   margin-left: var(--sidebar-width);
-  height: 100vh;
+  min-height: 100dvh;
   overflow-y: auto;
   padding: 34px;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -380,6 +387,7 @@ form button:hover {
   height: auto;
   max-height: none;
   overflow: visible;
+  padding-bottom: 20px;
 }
 
 .academics-header h1 {
@@ -1086,7 +1094,7 @@ form button:hover {
     padding: 24px 16px;
     left: -250px;
     top: 0;
-    height: 100vh;
+    min-height: 100dvh;
     transition: left 0.3s ease;
   }
 

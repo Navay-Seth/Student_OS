@@ -163,6 +163,21 @@ body.dark .subject-meta,
 body.dark #cgpaInfo,
 body.dark #targetCgpaInfo,
 body.dark #quickCgpaInfo,
-body.dark .quick-cgpa-field label {
+body.dark .quick-cgpa-field label,
+body.dark .task-due,
+body.dark .task-empty {
   color: #94a3b8;
+}
+
+body.dark .task-late {
+  color: #fca5a5;
+}
+
+body.dark .task-empty {
+  background: #0f172a;
+  border-color: #334155;
+}
+
+body.dark .form-error {
+  color: #fca5a5;
 }

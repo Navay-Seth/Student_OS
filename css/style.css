@@ -345,6 +345,13 @@ form button:hover {
   opacity: 0.9;
 }
 
+.form-error {
+  width: 100%;
+  margin-top: -6px;
+  font-size: 13px;
+  color: #b91c1c;
+}
+
 .target-cgpa-inline {
   margin-top: 14px;
 }
@@ -559,7 +566,7 @@ form button:hover {
 .task-item {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 16px 18px;
   background: #ffffff;
   margin-bottom: 14px;
@@ -577,11 +584,31 @@ form button:hover {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  min-width: 0;
+}
+
+.task-title-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .task-title {
   font-weight: 600;
   font-size: 15px;
+  overflow-wrap: anywhere;
+}
+
+.task-due {
+  font-size: 12px;
+  color: #475569;
+}
+
+.task-late {
+  font-size: 12px;
+  font-weight: 600;
+  color: #b91c1c;
 }
 
 .task-priority {
@@ -618,6 +645,10 @@ form button:hover {
   color: #64748b;
 }
 
+.task-item.done .task-due {
+  color: #64748b;
+}
+
 /* Task buttons */
 .task-item button {
   background: linear-gradient(135deg, #22c55e, #4ade80);
@@ -636,6 +667,7 @@ form button:hover {
 .task-actions {
   display: flex;
   gap: 8px;
+  flex-shrink: 0;
 }
 
 .task-item .task-delete {
@@ -644,6 +676,70 @@ form button:hover {
 
 .task-item.done .task-delete {
   background: linear-gradient(135deg, #ef4444, #f87171);
+}
+
+.planner-card {
+  cursor: default;
+  text-align: left;
+  padding: 24px;
+}
+
+.planner-card:hover {
+  transform: none;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.planner-sections {
+  display: grid;
+  gap: 20px;
+}
+
+.planner-section {
+  border-left: 4px solid #cbd5e1;
+  padding-left: 14px;
+}
+
+.planner-section h3,
+.planner-section summary {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.section-overdue {
+  border-left-color: #ef4444;
+}
+
+.section-today {
+  border-left-color: #2563eb;
+}
+
+.section-upcoming {
+  border-left-color: #16a34a;
+}
+
+.section-completed {
+  border-left-color: #64748b;
+}
+
+.section-completed summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.section-completed summary::-webkit-details-marker {
+  display: none;
+}
+
+.task-empty {
+  font-size: 14px;
+  color: #64748b;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 10px;
+  padding: 12px;
 }
 
 /* ===================================================== */

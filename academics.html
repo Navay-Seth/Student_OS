@@ -129,8 +129,8 @@
 
       <form id="subjectForm" class="subject-form-grid">
         <input type="text" id="subjectName" placeholder="Subject Name" required>
-        <input type="number" id="attendance" placeholder="Attendance %" required>
-        <input type="number" id="progress" placeholder="Syllabus Progress %" required>
+        <input type="number" id="attendance" placeholder="Attendance %" min="0" max="100" step="1" required>
+        <input type="number" id="progress" placeholder="Syllabus Progress %" min="0" max="100" step="1" required>
         <button type="submit">Add Subject</button>
       </form>
     </section>

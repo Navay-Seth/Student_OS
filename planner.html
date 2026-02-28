@@ -76,19 +76,47 @@
           <option value="Low">Low Priority</option>
         </select>
 
+        <input
+          type="date"
+          id="dueDate"
+          required
+        >
+        <p id="dueDateError" class="form-error" aria-live="polite"></p>
+
         <button type="submit">Add Task</button>
       </form>
     </section>
 
-    <section class="card">
-      <h3>Today's Tasks</h3>
-      <div id="taskList"></div>
+    <section class="card planner-card">
+      <div class="planner-sections">
+        <section class="planner-section section-overdue">
+          <h3>🔴 Overdue (<span id="overdueCount">0</span>)</h3>
+          <div id="overdueList"></div>
+        </section>
+
+        <section class="planner-section section-today">
+          <h3>🔵 Today (<span id="todayCount">0</span>)</h3>
+          <div id="todayList"></div>
+        </section>
+
+        <section class="planner-section section-upcoming">
+          <h3>🟢 Upcoming (<span id="upcomingCount">0</span>)</h3>
+          <div id="upcomingList"></div>
+        </section>
+
+        <details class="planner-section section-completed" id="completedSection">
+          <summary>
+            <span>✔ Completed</span>
+            <span>(<span id="completedCount">0</span>)</span>
+          </summary>
+          <div id="completedList"></div>
+        </details>
+      </div>
     </section>
   </main>
 
   <script src="js/theme.js"></script>
   <script src="js/mobile-sidebar.js"></script>
-  <script src="js/storage.js"></script>
   <script src="js/planner.js"></script>
   <script>
     lucide.createIcons();

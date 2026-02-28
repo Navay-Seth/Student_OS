@@ -136,6 +136,14 @@ function parseNonNegativeNumber(value) {
   return Number.isFinite(parsed) && parsed >= 0 ? parsed : NaN;
 }
 
+function parsePercentage(value) {
+  const parsed = Number(value);
+  if (!Number.isFinite(parsed) || parsed < 0 || parsed > 100) {
+    return NaN;
+  }
+  return parsed;
+}
+
 function initQuickCgpaCalculator() {
   if (!quickCgpaForm || !oldCreditsInput || !oldCgpaInput || !currentCreditsInput || !currentGpaInput || !quickCgpaInfo) {
     return;
@@ -191,16 +199,53 @@ function initQuickCgpaCalculator() {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
+  const subjectLabel = subjectName.value.trim();
+  const parsedAttendance = parsePercentage(attendance.value);
+  const parsedProgress = parsePercentage(progress.value);
+
+  if (!subjectLabel) {
+    subjectName.setCustomValidity("Enter a subject name.");
+    subjectName.reportValidity();
+    return;
+  }
+  subjectName.setCustomValidity("");
+
+  if (!Number.isFinite(parsedAttendance)) {
+    attendance.setCustomValidity("Attendance must be a number between 0 and 100.");
+    attendance.reportValidity();
+    return;
+  }
+  attendance.setCustomValidity("");
+
+  if (!Number.isFinite(parsedProgress)) {
+    progress.setCustomValidity("Syllabus progress must be a number between 0 and 100.");
+    progress.reportValidity();
+    return;
+  }
+  progress.setCustomValidity("");
+
   const subject = {
-    name: subjectName.value,
-    attendance: attendance.value,
-    progress: progress.value
+    name: subjectLabel,
+    attendance: parsedAttendance,
+    progress: parsedProgress
   };
 
   subjects.push(subject);
   saveData("subjects", subjects);
   renderSubjects();
   form.reset();
+});
+
+attendance.addEventListener("input", () => {
+  attendance.setCustomValidity("");
+});
+
+progress.addEventListener("input", () => {
+  progress.setCustomValidity("");
+});
+
+subjectName.addEventListener("input", () => {
+  subjectName.setCustomValidity("");
 });
 
 renderSubjects();

@@ -6,6 +6,8 @@ const CGPA_HISTORY_KEY = "cgpaHistory";
 const STUDIED_DATES_KEY = "studiedDates";
 const TARGET_CGPA_KEY = "targetCgpa";
 const SEMESTER_GPA_KEY = "semesterGpas";
+const TASKS_KEY = "studentos_tasks";
+const LEGACY_TASKS_KEY = "tasks";
 const DEFAULT_TARGET_CGPA = 9.0;
 
 let selectedDurationMinutes = DEFAULT_TIMER_MINUTES;
@@ -36,6 +38,14 @@ function getSafeNumber(key) {
   const raw = localStorage.getItem(key);
   const parsed = Number(raw);
   return Number.isFinite(parsed) ? parsed : NaN;
+}
+
+function getPlannerTasks() {
+  const tasks = getSafeArray(TASKS_KEY);
+  if (tasks.length > 0) {
+    return tasks;
+  }
+  return getSafeArray(LEGACY_TASKS_KEY);
 }
 
 function formatDateShort(isoDate) {
@@ -174,8 +184,8 @@ function clampPercent(value) {
 }
 
 function getDashboardData() {
-  const tasks = getSafeArray("tasks");
-  const doneTasks = tasks.filter((task) => task && task.done).length;
+  const tasks = getPlannerTasks();
+  const doneTasks = tasks.filter((task) => task && (task.completed || task.done)).length;
   const totalTasks = tasks.length;
 
   const studiedDates = getSafeArray(STUDIED_DATES_KEY);
